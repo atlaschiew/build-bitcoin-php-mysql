@@ -1,0 +1,6 @@
+# Ignore everything:
+*error_log
+*.git/
+*.well-known/
+*cgi-bin/
+*test/
