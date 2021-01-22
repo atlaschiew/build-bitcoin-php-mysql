@@ -2,28 +2,16 @@
 
 class Address {
 	
-	static function getBalance($address) {
+	static function getBalance($address,$forkId) {
 		$decimalToInt =  bcpow("10", chain::AMOUNT_DECIMAL_POINT);
 		
-		$balance = DB::result($r = DB::query("SELECT SUM(amount*{$decimalToInt}) FROM `unspentTxOuts` WHERE address='".DB::esc($address)."' LIMIT 1"),0,0);
+		$utxoTable = Utxo::getTable($forkId);
+		
+		$balance = DB::result($r = DB::query("SELECT SUM(amount*{$decimalToInt}) FROM {$utxoTable} WHERE address='".DB::esc($address)."' LIMIT 1"),0,0);
 		
 		$balance = Utils::safeDiv($balance,$decimalToInt);
 		@mysqli_free_result($r);
 		return $balance;
-	}
-	
-	static function getBalanceInfo($address) {
-		$decimalToInt =  bcpow("10", chain::AMOUNT_DECIMAL_POINT);
-		
-		$balance = DB::result($r = DB::query("SELECT SUM(amount*{$decimalToInt}) FROM `unspentTxOuts` WHERE address='".DB::esc($address)."' LIMIT 1"),0,0);
-		
-		$balance = Utils::safeDiv($balance,$decimalToInt);
-		
-		$totalReceived = DB::result($r = DB::query("SELECT SUM(amount*{$decimalToInt}) FROM `blockTxOuts` WHERE address='".DB::esc($address)."' LIMIT 1"),0,0);
-		
-		$totalReceived = Utils::safeDiv($totalReceived,$decimalToInt);
-		@mysqli_free_result($r);
-		return array('balance'=>$balance,'totalReceived'=>$totalReceived);
 	}
 	
 	static function getUtxO($address,$start = null, $limit = null, $orderby=null) {
