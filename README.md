@@ -52,3 +52,6 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
     <a href="https://www.btcschools.net/media/images/github/show_3_cli.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/show_3_cli.PNG" width="400px" height="250px"></a><br/>
     Diagram 1. Three nodes are running now.
 </p>
+
+8. Make sure your HTTP server is running fine. Now open up 3 different browser and navigate to http://localhost/blockexplorer/. To view blockchain, you need to fill in different ip for each blockexplorer and click connect button.
+
