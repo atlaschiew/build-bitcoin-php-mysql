@@ -85,3 +85,21 @@ TxPool.php             # A place to hold pending txs. A.k.a mempool in bitcoin
 Utils.php              # Common use functions and classes
 Utxo.php               # Unspent tx output related functions
 ```
+<p align="center">
+    Project structure
+</p>
+
+```sh
+blocks
+blockTxIns
+blockTxOuts
+blockTxs
+fork
+peers
+transactionPool
+transactionPoolTxIns
+unspentTxOuts
+```
+<p align="center">
+    Table structure
+</p>
