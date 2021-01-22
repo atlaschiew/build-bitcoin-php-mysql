@@ -64,3 +64,24 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
     <a href="https://www.btcschools.net/media/images/github/miner.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/miner.PNG" width="400px" height="180px"></a><br/>
     Diagram 3. Miner is running.
 </p>
+
+### Project And Table Structure
+```sh
+blockexplorer/         
+miner/
+Vendor/
+  Tuaris/
+    CryptoCurrencyPHP/ 
+Address.php            #Address related functions,such as getBalance() and newAddress()
+Block.php              
+Chain.php
+Config.php
+Consensus.php
+Main.php               #An entry point for this program
+mysql.sql      
+Network.php
+Transaction.php
+TxPool.php             #A place to hold pending txs. A.k.a mempool in bitcoin
+Utils.php              #Common use functions and classes
+Utxo.php               #Unspent tx output related functions
+```
