@@ -4,7 +4,7 @@ include_once("common.php");
 $recordPerPage = 10;
 $targetPeer = "{$_SESSION['nodeIp']}:9981";
 
-$rawBalance = Network::postToUrl($targetPeer,['query' => 'balanceInfo','address'=> $_GET['address']]);
+$rawBalance = Network::postToUrl($targetPeer,['query' => 'balance','address'=> $_GET['address']]);
 $balance = json_decode($rawBalance,true);
 $balance = $balance['result'];
 
@@ -81,8 +81,7 @@ include_once("html_header.php");
 	<table style="width:40%">
 		<tr><th colspan=2><b>Summary</b></th></tr>
 		<tr><td><b>Address</td><td><?php echo wordwrap($_GET['address'],64,"<br>",true);?></td></tr>
-		<tr><td><b>Total Received</b></td><td><?php echo $balance['totalReceived']?></td></tr>
-		<tr><td><b>Current Balance</b></td><td><?php echo $balance['balance']?></td></tr>
+		<tr><td><b>Current Balance</b></td><td><?php echo $balance?></td></tr>
 	</table>
 	<H1>Raw Data</H1>
 	<div>
