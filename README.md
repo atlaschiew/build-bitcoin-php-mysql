@@ -59,7 +59,7 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
     Diagram 2. Blockexplorer with 1 block, a.k.a genesis block.
 </p>
 
-9. Run miner and earn network rewards.
+9. Get new address at http://localhost/blockexplorer/new_address.php, then run miner at http://localhost/miner/ to earn network rewards.
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/miner.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/miner.PNG" width="400px" height="180px"></a><br/>
     Diagram 3. Miner is running.
