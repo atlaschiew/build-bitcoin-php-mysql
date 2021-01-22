@@ -17,7 +17,7 @@ I hope this tutorial is helpful to you to step into blockchain development.
 
 应一定数量的中文读者，作者才考虑是否将文章全文中文化。希望本项目可以帮助你了解区块连与加密货币是如何运作。
 
-### Deployment
+### Deployment (PHP>=5.5 & Mysql 5.6)
 
 1. Navigate to web root, then download git
 ```sh
