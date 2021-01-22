@@ -49,5 +49,5 @@ $ php public_html/Main.php --runAs="210.191.1.97" --addNodes="127.0.0.1,192.168.
 $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.0.12" --dbHost="localhost" --dbName="bitcoin_db3" --dbUser="bitcoin_user" --dbPwd='anypassword'
 ```
 <p align="center">
-    <img src="https://www.btcschools.net/media/images/github/show_3_cli.PNG">
+    <a href="https://www.btcschools.net/media/images/github/show_3_cli.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/show_3_cli.PNG" width="500px" height="250px"></a>
 </p>
