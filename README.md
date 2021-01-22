@@ -31,4 +31,7 @@ $ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
 
 3. Create mysql user `bitcoin_user` with proper password and privilleges and link it up to all 3 databases above. Please grant the new user with following privileges: `SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES`.
 
-4. 
+4. Please make sure these two php extensions `bcmath` and `gmp` are enabled.
+
+5. Ready to run
+
