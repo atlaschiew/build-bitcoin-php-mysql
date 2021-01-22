@@ -37,7 +37,7 @@ $ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
 
 6. Now open up 3 command line interface (cli) as 3 new windows. Login to each of them and proceed to next step.
 
-7. Ready to run! run all 3 nodes in php-cli mode.
+7. Now you are ready to run all 3 nodes in php-cli mode. Default port is 9981.
 ```sh
 #cli 1
 $ php public_html/Main.php --runAs="192.168.0.12" --addNodes="127.0.0.1,210.191.1.97" --dbHost="localhost" --dbName="bitcoin_db" --dbUser="bitcoin_user" --dbPwd='anypassword'
