@@ -14,3 +14,5 @@ We are using `PHP` and `MYSQL `mainly for backend, and a little bit `Jquery` whe
 This project is not ready for production launching, but rather we try to show you the basic principles of cryptocurrency that can be implemented in a concise way.
 
 I hope this tutorial is helpful to you to step into blockchain development.
+
+应一定数量的中文读者，作者才考虑是否将文章全文中文化。希望本项目可以帮助你了解区块连与加密货币是如何运作的。
