@@ -21,9 +21,10 @@ I hope this tutorial is helpful to you to step into blockchain development.
 
 1. Navigate to web root, then download git
 ```sh
-# navigate to your working web root
+# navigate to your working web root, assume web root folder is name public_html
 $ cd public_html
 
 # extract source code without project folder
 $ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
 ```
+2. Set up Mysql database. Assume you are using `phpmyadmin`, please do import and execute all sqls contain in public_html/mysql.sql
