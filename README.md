@@ -20,4 +20,10 @@ I hope this tutorial is helpful to you to step into blockchain development.
 ### Deployment
 
 1. Navigate to web root, then download git
-`git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .`
+```sh
+# navigate to your working web root
+$ cd public_html
+
+# extract source code without project folder
+$ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
+```
