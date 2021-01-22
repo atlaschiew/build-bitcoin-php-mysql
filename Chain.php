@@ -447,13 +447,10 @@ class Chain {
 				break;
 				
 				case 'balance':
-					$response = ["result"=>Address::getBalance($req['address'])];
+					$chain = self::getLongestChain();
+					$response = ["result"=>Address::getBalance($req['address'],$chain['id'])];
 				break;
-					
-				case 'balanceInfo':
-					$response = ["result"=>Address::getBalanceInfo($req['address'])];
-				break;
-					
+				
 				case 'addressTx':
 				
 					$chain = self::getLongestChain();
