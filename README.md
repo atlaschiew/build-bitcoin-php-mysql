@@ -67,21 +67,21 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
 
 ### Project And Table Structure
 ```sh
-blockexplorer/         
-miner/
+blockexplorer/         # blockexplorer program
+miner/                 # Miner program
 Vendor/
   Tuaris/
-    CryptoCurrencyPHP/ 
-Address.php            #Address related functions,such as getBalance() and newAddress()
-Block.php              
-Chain.php
-Config.php
-Consensus.php
-Main.php               #An entry point for this program
-mysql.sql      
-Network.php
-Transaction.php
-TxPool.php             #A place to hold pending txs. A.k.a mempool in bitcoin
-Utils.php              #Common use functions and classes
-Utxo.php               #Unspent tx output related functions
+    CryptoCurrencyPHP/ # https://github.com/tuaris/CryptoCurrencyPHP, mainly apply for key-pair generation and signature operation
+Address.php            # Address related functions,such as getBalance() and newAddress()
+Block.php              # Block related functions, such as produce valid block structure
+Chain.php              # Core of program, manage requests and coordinate node to work correctly
+Config.php             # Conf file, can be overwritten by command line argument
+Consensus.php          # Validation and verification functions for node to abide network consensus
+Main.php               # An entry point for this program
+mysql.sql              # Database tables to be imported
+Network.php            # TCP socket functions to form the P2P network and serve RPC calling
+Transaction.php        # Contain 3 classes, Transaction, TxIn & TxOut to produce valid TX strcture
+TxPool.php             # A place to hold pending txs. A.k.a mempool in bitcoin
+Utils.php              # Common use functions and classes
+Utxo.php               # Unspent tx output related functions
 ```
