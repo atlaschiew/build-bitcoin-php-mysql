@@ -9,8 +9,8 @@
 ### About The Project
 In this tutorial we will code from zero to form a basic features of working cryptocurrency. Most of work meets minimal working requirement and aims for simplicity and easy understanding.
 
-We are using PHP and MYSQL mainly for backend, and a little bit jquery when come to frontend.
+We are using `PHP` and `MYSQL `mainly for backend, and a little bit `Jquery` when come to frontend.
 
-The final version of this project is by no means a “production ready” implementation of a cryptocurrency, but rather tries to show that the basic principles in a cryptocurrency can be implemented in a concise way.
+This project is not ready for production launching, but rather we try to show you the basic principles of cryptocurrency that can be implemented in a concise way.
 
-I hope this tutorial will help you understand more of the technical aspects of a cryptocurrency.
+I hope this tutorial is helpful to you to step into blockchain development.
