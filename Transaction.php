@@ -119,7 +119,7 @@ class Transaction {
 	
 	static function getCoinbaseTransaction($address, $blockIndex) {
 		
-		$reward =  Chain::getReward($block->blockIndex);
+		$reward =  Chain::getReward($blockIndex);
 		
 		$t = new Transaction();
 		
