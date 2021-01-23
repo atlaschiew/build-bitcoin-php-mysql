@@ -83,7 +83,7 @@ Network.php            # TCP socket functions to form the P2P network and serve 
 Transaction.php        # Contain 3 classes, Transaction, TxIn & TxOut to produce valid TX strcture
 TxPool.php             # A place to hold pending txs. A.k.a mempool in bitcoin
 Utils.php              # Common use functions and classes
-Utxo.php               # Unspent tx output related functions
+Utxo.php               # Unspent tx output (UTXO) related functions
 ```
 <p align="center">
     Project structure
@@ -104,34 +104,35 @@ blocks                 # A block is produced by a miner by solving the POW puzzl
   
 blockTxIns             # Could be reproduce from `blocks.data`, This table is for quick query usage
   id                   # Auto-increment primary id
-  address              
-  txId
-  blockHash
-  blockIndex
-  txOutId
-  txOutIndex
-  signature
-blockTxOuts
-  id
-  txId
-  txOutIndex
-  blockHash
-  blockIndex
-  address
-  amount
+  address              # Address belong to this TX's input
+  txId                 # Associated TX id
+  blockHash            # Associated block hash
+  blockIndex           # Associated block height
+  txOutId              # Previous Unspent TX id
+  txOutIndex           # Previous Unspent TX output index
+  signature            # Signature generate from signing this input
   
-blockTxs
-  id
-  txId
-  blockHash
-  blockIndex
-  timestamp
-  txFees
+blockTxOuts            # Could be reproduce from `blocks.data`, This table is for quick query usage
+  id                   # Auto-increment primary id
+  txId                 # Associated TX id         
+  txOutIndex           # Associated block hash
+  blockHash            # Associated block hash
+  blockIndex           # Associated block height
+  address              # Output address, or known as recipient address from end user perspective
+  amount               # Send amount
   
-fork
-  id
-  status
-    valid-fork
+blockTxs               # Could be reproduce from `blocks.data`, This table is for quick query usage
+  id                   # Auto-increment primary id            
+  txId                 # TX id
+  blockHash            # Associated block hash
+  blockIndex           # Associated block height
+  timestamp            # Time submit to TX pool
+  txFees               # TX fees pay to miner, can be reproduce from sum(total TX input amount) - sum(total TX output amount)
+  
+fork                   # To store status of different fork (branches)
+  id                   # Auto-increment primary id   
+  status               # Status of fork
+    valid-fork         #
     valid-headers
     active
   chainWork
