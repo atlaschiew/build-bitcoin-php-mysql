@@ -6,7 +6,7 @@
     </p>
 </p>
 
-### About The Project
+## About The Project
 In this tutorial we will code from zero to form a basic features of working cryptocurrency. Most of work meets minimal working requirement and aims for simplicity and easy understanding.
 
 We are using `PHP` and `MYSQL `mainly for backend, and a little bit `Jquery` when come to frontend.
@@ -17,7 +17,7 @@ I hope this tutorial is helpful to you to step into blockchain development.
 
 应一定数量的中文读者，作者才考虑是否将文章全文中文化。希望本项目可以帮助你了解区块连与加密货币是如何运作。
 
-### Deployment (PHP>=5.5 & Mysql 5.6)
+## Deployment (PHP>=5.5 & Mysql 5.6)
 
 1. Navigate to web root, then download git
 ```sh
@@ -65,7 +65,7 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
     Diagram 3. Miner is running.
 </p>
 
-### Project And Table Structure
+## Project And Table Structure
 ```sh
 blockexplorer/         # Blockexplorer program
 miner/                 # Miner program
@@ -170,3 +170,5 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
 <p align="center">
     Table structure
 </p>
+
+## Coding Study
