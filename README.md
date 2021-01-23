@@ -178,4 +178,4 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
 ### Initialization Stage
 1. `Main.php` loads all the neccesary php files. parse command line argument, initialise system task variable, connect mysql and start chain.
 
-2. 
+2. `Chain.php -> start()` script add genesis block if not exist, manage peers, and ready to start TCP server for listening with default port is 9981.
