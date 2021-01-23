@@ -188,4 +188,8 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
   * Ready to start TCP server for listening with default port is 9981.
 
 3. `Network.php > runServer(...)` 
-  * Broadcast
+  * Broadcast to network to send me peers.
+  * Broadcast to network to send me new blocks from my active chain.
+  * Grant `systemTask.downloadBlocks` task. This task will be auto kill if idle longer than 5 seconds.
+  * Start TCP server and ready to accept new client connection.
+  * Any valid client request will be handle by `Chain.php -> handleRequest(...)`.
