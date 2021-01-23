@@ -99,12 +99,12 @@ blocks                 # A block is produced by a miner by solving the POW puzzl
   hash                 # Current block hash
   difficulty           # A rate to balance block generation spped, difficulty rate down when block generation is fast or converse
   target               # A target to hit in order to solve the POW puzzle, if hash <= target then the block is mined successfully
-  chainWork            # Chainwork is accumulated from block to block. Miner will only mine the block and add on to the most chain work chain.
+  chainWork            # Chainwork is accumulated from block to block. New mined block will add onto the chain with most chain work.
   nonce                # An answer to the POW puzzle
   
-blockTxIns         
-  id          
-  address
+blockTxIns             # Could be reproduce from `blocks.data`, This table is for quick query usage
+  id                   # Auto-increment primary id
+  address              
   txId
   blockHash
   blockIndex
