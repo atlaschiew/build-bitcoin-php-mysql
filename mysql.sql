@@ -151,8 +151,7 @@ CREATE TABLE `unspentTxOuts` (
   `txOutId` char(64) NOT NULL,
   `txOutIndex` int(3) NOT NULL,
   `address` char(34) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `amount` decimal(17,8) NOT NULL DEFAULT '0.00000000',
-  
+  `amount` decimal(17,8) NOT NULL DEFAULT '0.00000000'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
