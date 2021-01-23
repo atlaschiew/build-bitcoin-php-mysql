@@ -96,8 +96,7 @@ CREATE TABLE `fork` (
   `lastFork` char(64) NOT NULL,
   `branchStartAt` char(64) NOT NULL,
   `lastBlockIndex` int(11) NOT NULL,
-  `lastBlockHash` char(64) NOT NULL,
-  `repeatHear` smallint(6) NOT NULL DEFAULT '0'
+  `lastBlockHash` char(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
