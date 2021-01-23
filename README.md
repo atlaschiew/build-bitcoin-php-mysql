@@ -109,7 +109,7 @@ blockTxIns             # Could be reproduce from `blocks.data`, This table is fo
   blockHash            # Associated block hash
   blockIndex           # Associated block height
   txOutId              # Previous Unspent TX id
-  txOutIndex           # Previous Unspent TX output index
+  txOutIndex           # Previous output index in Unspent TX 
   signature            # Signature generate from signing this input
   
 blockTxOuts            # Could be reproduce from `blocks.data`, This table is for quick query usage
@@ -147,25 +147,25 @@ peers                  # To store peers around, so program can broadcast data to
   lastUpdateDate       # Added time
   
 transactionPool        # To store pending TXs. A.k.a `mempool` in bitcoin
-  txId
-  timestamp
-  txFees
-  txIns
-  txOuts
+  txId                 # Pending TX id
+  timestamp            # Added time
+  txFees               # TX fees pay to miner
+  txIns                # TX's inputs (JSON)
+  txOuts               # TX's outputs (JSON)
   
-transactionPoolTxIns #
-  id
-  txId
-  txOutId
-  txOutIndex
+transactionPoolTxIns   # To prevent same UTXO being insert twice. Bitcoin allow this by enabling opt-in RBF (replace by fees)
+  id                   # Auto-increment primary id           
+  txId                 # TX id
+  txOutId              # Previous Unspent TX id   
+  txOutIndex           # Previous output index in Unspent TX 
   
-unspentTxOuts
-  id
-  blockIndex
-  txOutId
-  txOutIndex
-  address
-  amount
+unspentTxOuts          # Maintain active UTXO, spent TX output will be removed from this table
+  id                   # Auto-increment primary id   
+  blockIndex           # Associated block height 
+  txOutId              # Previous Unspent TX id  
+  txOutIndex           # Previous output index in Unspent TX 
+  address              # Associated address
+  amount               # Unspent amount
 ```
 <p align="center">
     Table structure
