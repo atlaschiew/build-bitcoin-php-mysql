@@ -91,14 +91,70 @@ Utxo.php               # Unspent tx output related functions
 
 ```sh
 blocks
+  id
+  blockIndex
+  previousHash
+  timestamp
+  data
+  hash
+  difficulty
+  target
+  chainWork
+  nonce
 blockTxIns
+  id
+  address
+  txId
+  blockHash
+  blockIndex
+  txOutId
+  txOutIndex
+  signature
 blockTxOuts
+  id
+  txId
+  txOutIndex
+  blockHash
+  blockIndex
+  address
+  amount
 blockTxs
+  id
+  txId
+  blockHash
+  blockIndex
+  timestamp
+  txFees
 fork
+  id
+  status
+  chainWork
+  lastFork
+  branchStartAt
+  lastBlockIndex
+  lastBlockHash
 peers
+  id
+  host
+  lastUpdateDate
 transactionPool
+  txId
+  timestamp
+  txFees
+  txIns
+  txOuts
 transactionPoolTxIns
+  id
+  txId
+  txOutId
+  txOutIndex
 unspentTxOuts
+  id
+  blockIndex
+  txOutId
+  txOutIndex
+  address
+  amount
 ```
 <p align="center">
     Table structure
