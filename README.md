@@ -7,6 +7,7 @@
 </p>
 <br/>
 <br/>
+
 ## About The Project
 In this tutorial we will code from zero to form a basic features of working cryptocurrency. Most of work meets minimal working requirement and aims for simplicity and easy understanding.
 
