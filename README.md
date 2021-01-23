@@ -177,10 +177,10 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
 
 ### Initialization Stage
 1. `Main.php` 
-  1.1. loads all the neccesary php files. 
-  1.2. parse command line argument.
-  1.3. initialise system task variable
-  1.4 . connect mysql and start chain.
+  * loads all the neccesary php files. 
+  * parse command line argument.
+  * initialise system task variable
+  * connect mysql and start chain.
 
 2. `Chain.php -> start()` 
   2.1. Script add genesis block if not exist.
