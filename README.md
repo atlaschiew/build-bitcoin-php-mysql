@@ -132,21 +132,21 @@ blockTxs               # Could be reproduce from `blocks.data`, This table is fo
 fork                   # To store status of different fork (branches)
   id                   # Auto-increment primary id   
   status               # Status of fork
-    valid-fork         #
-    valid-headers
-    active
-  chainWork
-  lastFork
-  branchStartAt
-  lastBlockIndex
-  lastBlockHash
+    valid-fork         # Verified chain, this chain is connected somewhere to main chain.
+    valid-headers      # Valid block, program will check and download the chain.
+    active             # Current active chain with most chain work
+  chainWork            # Lastest chain work
+  lastFork             # Block for Branch head to extend to
+  branchStartAt        # Branch head
+  lastBlockIndex       # Latest block height
+  lastBlockHash        # Latest block hash
   
-peers
-  id
-  host
-  lastUpdateDate
+peers                  # To store peers around, so program can broadcast data to all of them
+  id                   # Auto-increment primary id   
+  host                 # Peer IP
+  lastUpdateDate       # Added time
   
-transactionPool
+transactionPool        # To store pending TXs. A.k.a `mempool` in bitcoin
   txId
   timestamp
   txFees
