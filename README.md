@@ -1,11 +1,12 @@
 <p align="center">
     <img src="https://www.btcschools.net/media/images/github/bitcoinborn.PNG"/>
-    <h2 align="center">Build Bitcoin With PHP & Mysql</h2>
+    <h3 align="center">Build Bitcoin With PHP & Mysql</h3>
     <p align="center">
     So let's heading back to year 2008 and meet Satoshi Nakamoto
     </p>
 </p>
-
+<br/>
+<br/>
 ## About The Project
 In this tutorial we will code from zero to form a basic features of working cryptocurrency. Most of work meets minimal working requirement and aims for simplicity and easy understanding.
 
