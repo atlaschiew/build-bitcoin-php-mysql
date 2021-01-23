@@ -71,101 +71,101 @@ blockexplorer/         # Blockexplorer program
 miner/                 # Miner program
 Vendor/
   Tuaris/
-    CryptoCurrencyPHP/ # https://github.com/tuaris/CryptoCurrencyPHP, mainly apply for key-pair generation and signature operation
-Address.php            # Address related functions,such as getBalance() and newAddress()
-Block.php              # Block related functions, such as produce valid block structure
-Chain.php              # Core of program, manage requests and coordinate node to work correctly
-Config.php             # Conf file, can be overwritten by command line argument
-Consensus.php          # Validation and verification functions for node to abide network consensus
-Main.php               # An entry point for this program
-mysql.sql              # Database tables to be imported
-Network.php            # TCP socket functions to form the P2P network and serve RPC calling
-Transaction.php        # Contain 3 classes, Transaction, TxIn & TxOut to produce valid TX strcture
-TxPool.php             # A place to hold pending txs. A.k.a mempool in bitcoin
-Utils.php              # Common use functions and classes
-Utxo.php               # Unspent tx output (UTXO) related functions
+    CryptoCurrencyPHP/ # https://github.com/tuaris/CryptoCurrencyPHP, mainly apply for key-pair generation and signature operation.
+Address.php            # Address related functions,such as getBalance() and newAddress().
+Block.php              # Block related functions, such as produce valid block structure.
+Chain.php              # Core of program, manage requests and coordinate node to work correctly.
+Config.php             # Conf file, can be overwritten by command line argument.
+Consensus.php          # Validation and verification functions for node to abide network consensus.
+Main.php               # An entry point for this program.
+mysql.sql              # Database tables to be imported.
+Network.php            # TCP socket functions to form the P2P network and serve RPC calling.
+Transaction.php        # Contain 3 classes, Transaction, TxIn & TxOut to produce valid TX strcture.
+TxPool.php             # A place to hold pending txs. A.k.a mempool in bitcoin.
+Utils.php              # Common use functions and classes.
+Utxo.php               # Unspent tx output (UTXO) related functions.
 ```
 <p align="center">
     Project structure
 </p>
 
 ```sh
-blocks                 # A block is produced by a miner by solving the POW puzzle, it contains many TXes, many blocks are linked up to form a blockchain
-  id                   # Auto-increment primary id
-  blockIndex           # Block height
-  previousHash         # Parent block for this new block to link to
-  timestamp            # Block created time
-  data                 # Block body, contain multiple TXes
-  hash                 # Current block hash
-  difficulty           # A rate to balance block generation spped, difficulty rate down when block generation is fast or converse
-  target               # A target to hit in order to solve the POW puzzle, if hash <= target then the block is mined successfully
+blocks                 # A block is produced by a miner by solving the POW puzzle, it contains many TXes, many blocks are linked up to form a blockchain.
+  id                   # Auto-increment primary id.
+  blockIndex           # Block height.
+  previousHash         # Parent block for this new block to link to.
+  timestamp            # Block created time.
+  data                 # Block body, contain multiple TXes.
+  hash                 # Current block hash.
+  difficulty           # A rate to balance block generation spped, difficulty rate down when block generation is fast or converse.
+  target               # A target to hit in order to solve the POW puzzle, if hash <= target then the block is mined successfully.
   chainWork            # Chainwork is accumulated from block to block. New mined block will add onto the chain with most chain work.
-  nonce                # An answer to the POW puzzle
+  nonce                # An answer to the POW puzzle.
   
-blockTxIns             # Could be reproduce from `blocks.data`, This table is for quick query usage
-  id                   # Auto-increment primary id
-  address              # Address belong to this TX's input
-  txId                 # Associated TX id
-  blockHash            # Associated block hash
-  blockIndex           # Associated block height
-  txOutId              # Previous Unspent TX id
-  txOutIndex           # Previous output index in Unspent TX 
-  signature            # Signature generate from signing this input
+blockTxIns             # Could be reproduce from `blocks.data`, This table is for quick query usage.
+  id                   # Auto-increment primary id.
+  address              # Address belong to this TX's input.
+  txId                 # TX id.
+  blockHash            # Associated block hash.
+  blockIndex           # Associated block height.
+  txOutId              # Previous Unspent TX id.
+  txOutIndex           # Previous output index in Unspent TX .
+  signature            # Signature generate from signing this input.
   
-blockTxOuts            # Could be reproduce from `blocks.data`, This table is for quick query usage
-  id                   # Auto-increment primary id
-  txId                 # Associated TX id         
-  txOutIndex           # Associated block hash
-  blockHash            # Associated block hash
-  blockIndex           # Associated block height
-  address              # Output address, or known as recipient address from end user perspective
-  amount               # Send amount
+blockTxOuts            # Could be reproduce from `blocks.data`, This table is for quick query usage.
+  id                   # Auto-increment primary id.
+  txId                 # TX id.    
+  txOutIndex           # TX output index.
+  blockHash            # Associated block hash.
+  blockIndex           # Associated block height.
+  address              # Output address, or known as recipient address from end user perspective.
+  amount               # Send amount.
   
-blockTxs               # Could be reproduce from `blocks.data`, This table is for quick query usage
-  id                   # Auto-increment primary id            
-  txId                 # TX id
-  blockHash            # Associated block hash
-  blockIndex           # Associated block height
-  timestamp            # Time submit to TX pool
-  txFees               # TX fees pay to miner, can be reproduce from sum(total TX input amount) - sum(total TX output amount)
+blockTxs               # Could be reproduce from `blocks.data`, This table is for quick query usage.
+  id                   # Auto-increment primary id.          
+  txId                 # TX id.
+  blockHash            # Associated block hash.
+  blockIndex           # Associated block height.
+  timestamp            # Time submit to TX pool.
+  txFees               # TX fees pay to miner, can be reproduce from sum(total TX input amount) - sum(total TX output amount).
   
-fork                   # To store status of different fork (branches)
-  id                   # Auto-increment primary id   
-  status               # Status of fork
+fork                   # To store status of different fork (branches).
+  id                   # Auto-increment primary id.   
+  status               # Status of fork.
     valid-fork         # Verified chain, this chain is connected somewhere to main chain.
     valid-headers      # Valid block, program will check and download the chain.
-    active             # Current active chain with most chain work
-  chainWork            # Lastest chain work
-  lastFork             # Block for Branch head to extend to
-  branchStartAt        # Branch head
-  lastBlockIndex       # Latest block height
-  lastBlockHash        # Latest block hash
+    active             # Current active chain with most chain work.
+  chainWork            # Lastest chain work.
+  lastFork             # Block for Branch head to extend to.
+  branchStartAt        # Branch head.
+  lastBlockIndex       # Latest block height.
+  lastBlockHash        # Latest block hash.
   
-peers                  # To store peers around, so program can broadcast data to all of them
-  id                   # Auto-increment primary id   
-  host                 # Peer IP
-  lastUpdateDate       # Added time
+peers                  # To store peers around, so program can broadcast data to all of them.
+  id                   # Auto-increment primary id.
+  host                 # Peer IP.
+  lastUpdateDate       # Added time.
   
-transactionPool        # To store pending TXs. A.k.a `mempool` in bitcoin
-  txId                 # Pending TX id
-  timestamp            # Added time
-  txFees               # TX fees pay to miner
-  txIns                # TX's inputs (JSON)
-  txOuts               # TX's outputs (JSON)
+transactionPool        # To store pending TXs. A.k.a `mempool` in bitcoin.
+  txId                 # Pending TX id.
+  timestamp            # Added time.
+  txFees               # TX fees pay to miner.
+  txIns                # TX's inputs (JSON).
+  txOuts               # TX's outputs (JSON).
   
-transactionPoolTxIns   # To prevent same UTXO being insert twice. Bitcoin allow this by enabling opt-in RBF (replace by fees)
-  id                   # Auto-increment primary id           
-  txId                 # TX id
-  txOutId              # Previous Unspent TX id   
-  txOutIndex           # Previous output index in Unspent TX 
+transactionPoolTxIns   # To prevent same UTXO being insert twice. Bitcoin allow this by enabling opt-in RBF (replace by fees).
+  id                   # Auto-increment primary id.
+  txId                 # TX id.
+  txOutId              # Previous Unspent TX id.
+  txOutIndex           # Previous output index in Unspent TX. 
   
-unspentTxOuts          # Maintain active UTXO, spent TX output will be removed from this table
-  id                   # Auto-increment primary id   
-  blockIndex           # Associated block height 
-  txOutId              # Previous Unspent TX id  
-  txOutIndex           # Previous output index in Unspent TX 
-  address              # Associated address
-  amount               # Unspent amount
+unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active UTXO.
+  id                   # Auto-increment primary id.   
+  blockIndex           # Associated block height. 
+  txOutId              # Previous Unspent TX id.  
+  txOutIndex           # Previous output index in Unspent TX. 
+  address              # Associated address.
+  amount               # Unspent amount.
 ```
 <p align="center">
     Table structure
