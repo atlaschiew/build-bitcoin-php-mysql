@@ -174,3 +174,8 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
 </p>
 
 ## Coding Study
+
+### Initialization Stage
+1. `Main.php` loads all the neccesary php files. parse command line argument, initialise system task variable, connect mysql and start chain.
+
+2. 
