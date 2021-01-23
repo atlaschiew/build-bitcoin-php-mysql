@@ -91,18 +91,19 @@ Utxo.php               # Unspent tx output related functions
 
 ```sh
 blocks                 # A block is produced by a miner by solving the POW puzzle, it contains many TXes, many blocks are linked up to form a blockchain
-  id                   # Auto-increment id
-  blockIndex
-  previousHash
-  timestamp
-  data
-  hash
-  difficulty
-  target
-  chainWork
-  nonce
-blockTxIns
-  id
+  id                   # Auto-increment primary id
+  blockIndex           # Block height
+  previousHash         # Parent block for this new block to link to
+  timestamp            # Block created time
+  data                 # Block body, contain multiple TXes
+  hash                 # Current block hash
+  difficulty           # A rate to balance block generation spped, difficulty rate down when block generation is fast or converse
+  target               # A target to hit in order to solve the POW puzzle, if hash <= target then the block is mined successfully
+  chainWork            # Chainwork is accumulated from block to block. Miner will only mine the block and add on to the most chain work chain.
+  nonce                # An answer to the POW puzzle
+  
+blockTxIns         
+  id          
   address
   txId
   blockHash
@@ -118,6 +119,7 @@ blockTxOuts
   blockIndex
   address
   amount
+  
 blockTxs
   id
   txId
@@ -125,6 +127,7 @@ blockTxs
   blockIndex
   timestamp
   txFees
+  
 fork
   id
   status
@@ -136,21 +139,25 @@ fork
   branchStartAt
   lastBlockIndex
   lastBlockHash
+  
 peers
   id
   host
   lastUpdateDate
+  
 transactionPool
   txId
   timestamp
   txFees
   txIns
   txOuts
+  
 transactionPoolTxIns #
   id
   txId
   txOutId
   txOutIndex
+  
 unspentTxOuts
   id
   blockIndex
