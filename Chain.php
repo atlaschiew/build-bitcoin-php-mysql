@@ -1096,7 +1096,9 @@ class Chain {
 							   txOutId='".DB::esc($addUtxo->txOutId)."',
 							   txOutIndex='".DB::esc($addUtxo->txOutIndex)."',
 							   address='".DB::esc($addUtxo->address)."',
-							   amount='".DB::esc($addUtxo->amount)."',blockIndex='".DB::esc($newBlock->blockIndex)."'
+							   amount='".DB::esc($addUtxo->amount)."',
+							   blockHash='".DB::esc($newBlock->hash)."',
+							   blockIndex='".DB::esc($newBlock->blockIndex)."'
 							   ");
 					}
 				}
