@@ -129,13 +129,14 @@ class Utxo {
 							'".DB::esc($newUnspent->txOutIndex)."', 
 							'".DB::esc($newUnspent->address)."',
 							'".DB::esc($newUnspent->amount)."',
+							'".DB::esc($block->hash)."',
 							'".DB::esc($block->blockIndex)."'),";
 			}
 		}
 		
 		$multiSQL = rtrim($multiSQL,",");
 		if ($multiSQL) {
-			$multiSQL = "INSERT INTO {$utxoTable} (`txOutId`,`txOutIndex`,`address`,`amount`,`blockIndex`) VALUES {$multiSQL}";
+			$multiSQL = "INSERT INTO {$utxoTable} (`txOutId`,`txOutIndex`,`address`,`amount`,`blockHash`,`blockIndex`) VALUES {$multiSQL}";
 			
 			DB::query($multiSQL);
 		} 
