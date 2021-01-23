@@ -67,7 +67,7 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
 
 ### Project And Table Structure
 ```sh
-blockexplorer/         # blockexplorer program
+blockexplorer/         # Blockexplorer program
 miner/                 # Miner program
 Vendor/
   Tuaris/
@@ -90,8 +90,8 @@ Utxo.php               # Unspent tx output related functions
 </p>
 
 ```sh
-blocks
-  id
+blocks                 # A block is produced by a miner by solving the POW puzzle, it contains many TXes, many blocks are linked up to form a blockchain
+  id                   # Auto-increment id
   blockIndex
   previousHash
   timestamp
@@ -128,6 +128,9 @@ blockTxs
 fork
   id
   status
+    valid-fork
+    valid-headers
+    active
   chainWork
   lastFork
   branchStartAt
@@ -143,7 +146,7 @@ transactionPool
   txFees
   txIns
   txOuts
-transactionPoolTxIns
+transactionPoolTxIns #
   id
   txId
   txOutId
