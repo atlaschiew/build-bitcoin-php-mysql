@@ -838,7 +838,7 @@ class Chain {
 				throw new Exception("[addBlock][Failure] invalid new block", 111);
 			} else {
 				
-				DB::query($sql = "INSERT INTO `fork` SET status='valid-headers', chainWork='', lastFork='', branchStartAt='', lastBlockIndex='".DB::esc($block->blockIndex)."',repeatHear='1', lastBlockHash='".DB::esc($block->hash)."' ON DUPLICATE KEY UPDATE repeatHear=repeatHear+1");
+				DB::query($sql = "INSERT INTO `fork` SET status='valid-headers', chainWork='', lastFork='', branchStartAt='', lastBlockIndex='".DB::esc($block->blockIndex)."',lastBlockHash='".DB::esc($block->hash)."'");
 				
 				$latestBlock = self::getLatestBlock();
 				
