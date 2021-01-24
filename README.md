@@ -203,4 +203,20 @@ By now, your node will receive new peers and new block from other if there are.
   * `$this->maintainSystem($req)` to maintain system task.
   * `$this->handleHeaders($req)` to process block header stuff.
   * There are total 14 RPC commands
+  ```sh
+  getPeers
+  generateAddress
+  getBlockTemplate
+  addBlock
+  getUtxos
+  transaction
+  blockhash
+  block
+  blocks
+  getRawTx
+  pushTx
+  getTransactionPool
+  addressTx
+  ```
+  
   * There are total 6 P2P commands
