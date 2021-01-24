@@ -226,5 +226,5 @@ By now, your node will receive new peers and new block from other if there are.
   P2P-sendMePeer         # Initiator ask peers to send him more known peers.
   P2P-sendMeBlocks       # Initiator ask peers to send him more blocks to download.
   P2P-sendYouBlocks      # Node receive P2P-sendMeBlocks command, then it trigger P2P-sendYouBlocks to transport his blocks to initiator.
-  P2P-checkFork          # Node receive P2P-sendMeBlocks command, then it trigger P2P-checkFork to transport block header to initiator to check is fork valid.
+  P2P-checkFork          # Node receive P2P-sendMeBlocks command, then it trigger P2P-checkFork to transport block header to initiator for check fork validness usage
   ```
