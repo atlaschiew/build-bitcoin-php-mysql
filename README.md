@@ -220,3 +220,11 @@ By now, your node will receive new peers and new block from other if there are.
   ```
   
   * There are total 6 P2P commands
+  ```
+  P2P-addTxPool
+  P2P-sendYouPeer
+  P2P-sendMePeer
+  P2P-sendMeBlocks
+  P2P-sendYouBlocks
+  P2P-checkFork
+  ```
