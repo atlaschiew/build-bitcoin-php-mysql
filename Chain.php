@@ -156,31 +156,6 @@ class Chain {
 					$response = $unspentTxOuts;
 				break;
 				
-				case 'getUtxo':
-					$chain = self::getLongestChain();
-					
-					$txOutId = $req['txOutId'];
-					$txOutIndex = (int)$req['txOutIndex'];
-					
-					$thisUtxo = Utxo::findUnspentTxOut($txOutId, $txOutIndex, $chain['id']);
-					
-					if ($thisUtxo!==false) {
-						$response = $thisUtxo;
-					}
-				break;
-				
-				case 'hasUnspent':
-					$chain = self::getLongestChain();
-					$txOutId = $req['txOutId'];
-					$txOutIndex = (int)$req['txOutIndex'];
-					
-					$thisUtxo = Utxo::findUnspentTxOut($txOutId, $txOutIndex, $chain['id']);
-					
-					$result = $thisUtxo === false ? 0 : 1;
-					
-					$response = ["result"=>$result];
-				break;
-
 				case 'transaction':
 					$chain = self::getLongestChain();
 					$txId = $req['txId'];
