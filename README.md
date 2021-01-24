@@ -204,19 +204,19 @@ By now, your node will receive new peers and new block from other if there are.
   * `$this->handleHeaders($req)` to process block header stuff.
   * There are total 14 RPC commands
   ```sh
-  getPeers
-  generateAddress
-  getBlockTemplate
-  addBlock
-  getUtxos
-  transaction
-  blockhash
-  block
-  blocks
-  getRawTx
-  pushTx
-  getTransactionPool
-  addressTx
+  getPeers               # Get all existing peers.
+  generateAddress        # Generate new address.
+  getBlockTemplate       # Get next block template for miner to use.
+  addBlock               # Add new block.
+  getUtxos               # Get list of UTXOs based on input address.
+  transaction            # Get Transaction details based on input TX id.
+  blockhash              # Get only 1 block based on block hash.
+  block                  # Get only 1 block based on block height.
+  blocks                 # Get group of blocks.
+  getRawTx               # Generate unsigned raw tx.
+  pushTx                 # Push transaction to node.
+  getTransactionPool     # Get list of pending TXes.
+  addressTx              # Get all TXs based on input address.
   ```
   
   * There are total 6 P2P commands
