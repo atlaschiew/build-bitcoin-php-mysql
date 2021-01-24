@@ -213,7 +213,7 @@ By now, your node will receive new peers and new block from other if there are.
   blockhash              # Get only 1 block based on block hash.
   block                  # Get only 1 block based on block height.
   blocks                 # Get group of blocks.
-  getRawTx               # Generate unsigned raw tx.
+  getRawTx               # Generate unsigned raw TX.
   pushTx                 # Push transaction to node.
   getTransactionPool     # Get list of pending TXes.
   addressTx              # Get all TXs based on input address.
@@ -221,10 +221,10 @@ By now, your node will receive new peers and new block from other if there are.
   
   * There are total 6 P2P commands
   ```
-  P2P-addTxPool
-  P2P-sendYouPeer
-  P2P-sendMePeer
-  P2P-sendMeBlocks
-  P2P-sendYouBlocks
-  P2P-checkFork
+  P2P-addTxPool          # Add pending TX to TX pool.
+  P2P-sendYouPeer        # Send peer to initiator.
+  P2P-sendMePeer         # Ask network for peers.
+  P2P-sendMeBlocks       # Ask network for blocks.
+  P2P-sendYouBlocks      # Send block to initiator.
+  P2P-checkFork          # Send block to initiator for check fork purpose.
   ```
