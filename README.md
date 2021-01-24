@@ -175,7 +175,7 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
 
 ## Coding Study
 
-### Initial Stage
+### Initialization
 1. `Main.php` 
   * Loads all the neccesary php files. 
   * Parse command line argument.
