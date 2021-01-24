@@ -221,10 +221,10 @@ By now, your node will receive new peers and new block from other if there are.
   
   * There are total 6 P2P commands
   ```
-  P2P-addTxPool          # Add pending TX to TX pool.
-  P2P-sendYouPeer        # Send peer to initiator.
-  P2P-sendMePeer         # Ask network for peers.
-  P2P-sendMeBlocks       # Ask network for blocks.
-  P2P-sendYouBlocks      # Send block to initiator.
-  P2P-checkFork          # Send block to initiator for check fork purpose.
+  P2P-addTxPool          # Initiator receive TX pushed by end user then broadcast P2P-addTxPool command to other peers to add.
+  P2P-sendYouPeer        # Node receive P2P-sendMePeer command, then it trigger P2P-sendYouPeer to transport his known peers to initiator.
+  P2P-sendMePeer         # Initiator ask peers to send him more known peers.
+  P2P-sendMeBlocks       # Initiator ask peers to send him more blocks to download.
+  P2P-sendYouBlocks      # Node receive P2P-sendMeBlocks command, then it trigger P2P-sendYouBlocks to transport his blocks to initiator.
+  P2P-checkFork          # Node receive P2P-sendMeBlocks command, then it trigger P2P-checkFork to transport block header to initiator to check is fork valid.
   ```
