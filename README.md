@@ -37,7 +37,7 @@ $ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
 
 5. We need 3 ip addresses for 3 TCP servers respectively to form a P2P network. Once you connected to internet, you should be able to get your PUBLIC IP, PRIVATE IP and LOCALHOST IP. In this tutorial, we assume public ip is 210.191.1.97, private ip is 192.168.0.12 and localhost ip is always be 127.0.0.1.
 
-6. Now open up 3 command line interface (cli) as 3 new windows. Login to each of them and proceed to next step.
+6. Now open up 3 command line interface (cli) as 3 new windows on screen. Login to each of them and proceed to next step.
 
 7. Now you are ready to run all 3 nodes in php-cli mode. Default port is 9981.
 ```sh
