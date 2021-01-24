@@ -235,3 +235,6 @@ By now, your node will receive new peers and new block from other if there are.
 5. if `handleRequest(...)` return with non-empty `$response` array, then TCP server will write the response back to the client request it.
 
 ### Block Generation
+
+1. New block only allow be produced by miner. So open up `miner/mining.php` and the trick play is in it.
+2. `getBlockTemplate` RPC command is trigger to get next block template.
