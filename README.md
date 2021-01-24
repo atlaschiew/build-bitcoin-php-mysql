@@ -232,3 +232,4 @@ By now, your node will receive new peers and new block from other if there are.
   P2P-sendYouBlocks      # Node receive P2P-sendMeBlocks command, then it trigger P2P-sendYouBlocks to transport his blocks to initiator.
   P2P-checkFork          # Node receive P2P-sendMeBlocks command, then it trigger P2P-checkFork to transport block header to initiator for check fork validness usage
   ```
+5. if `handleRequest(...)` return with non-empty `$response` array, then TCP server will write the response back to the client request it.
