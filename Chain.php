@@ -977,7 +977,7 @@ class Chain {
 	
 	static function getReward($blockIndex) {
 		
-		$rewardsUpToPrevBlock = Utils::safeMul(self::COINBASE_AMOUNT, $blockIndex - 1);
+		$rewardsUpToPrevBlock = Utils::safeMul(self::COINBASE_AMOUNT, $blockIndex);
 		$rewardsUpToPrevBlock = $rewardsUpToPrevBlock == "0" ? self::COINBASE_AMOUNT : $rewardsUpToPrevBlock;
 		
 		if (Utils::safecomp($rewardsUpToPrevBlock, Chain::MAX_SUPPLY) >= 0 ) {
