@@ -199,11 +199,15 @@ By now, your node will receive new peers and new block from other if there are.
 
 ### Request Handling
 
-1. `Chain.php -> handleRequest(...)` 
-  * `$this->maintainSystem($req)` to maintain system task.
-  * `$this->handleHeaders($req)` to process block header stuff.
-  * There are total 14 RPC commands
+1. `Chain.php -> handleRequest(...)` acts as entry point for receiving request.
+2. `$this->maintainSystem($req)` to maintain system task.
+3. `$this->handleHeaders($req)` to process block header stuff.
+4. Extra information.
+
   ```sh
+  #===============================
+  #There are total 14 RPC commands
+  #===============================
   getPeers               # Get all existing peers.
   generateAddress        # Generate new address.
   getBlockTemplate       # Get next block template for miner to use.
@@ -217,10 +221,10 @@ By now, your node will receive new peers and new block from other if there are.
   pushTx                 # Push transaction to node.
   getTransactionPool     # Get list of pending TXes.
   addressTx              # Get all TXs based on input address.
-  ```
   
-  * There are total 6 P2P commands
-  ```
+  #==============================
+  #There are total 6 P2P commands
+  #==============================
   P2P-addTxPool          # Initiator receive TX pushed by end user then broadcast P2P-addTxPool command to other peers to add.
   P2P-sendYouPeer        # Node receive P2P-sendMePeer command, then it trigger P2P-sendYouPeer to transport his known peers to initiator.
   P2P-sendMePeer         # Initiator ask peers to send him more known peers.
