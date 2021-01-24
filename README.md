@@ -234,4 +234,4 @@ By now, your node will receive new peers and new block from other if there are.
   ```
 5. if `handleRequest(...)` return with non-empty `$response` array, then TCP server will write the response back to the client request it.
 
-### How miner works?
+### Block Generation
