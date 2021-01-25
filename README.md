@@ -58,13 +58,13 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
 8. Make sure your HTTP server is running fine. Now open up 3 different browser and navigate to http://localhost/blockexplorer/. To view blockchain, you need to fill in different ip for each blockexplorer and click connect button.
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/blockexplorer.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/blockexplorer.PNG" width="400px" height="180px"></a><br/>
-    <small>Diagram 2. Blockexplorer with 1 block, a.k.a genesis block.</small>
+    <sub>Diagram 2. Blockexplorer with 1 block, a.k.a genesis block.</sub>
 </p>
 
 9. Get a new address at http://localhost/blockexplorer/new_address.php, then run miner at http://localhost/miner/ to receive network rewards.
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/miner.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/miner.PNG" width="400px" height="180px"></a><br/>
-    <small>Diagram 3. Miner is running.</small>
+    <sub>Diagram 3. Miner is running.</sub>
 </p>
 
 ## Project And Table Structure
@@ -88,7 +88,7 @@ Utils.php              # Common use functions and classes.
 Utxo.php               # Unspent tx output (UTXO) related functions.
 ```
 <p align="center">
-    <small>Project structure.</small>
+    <sub>Project structure.</sub>
 </p>
 
 ```sh
@@ -170,7 +170,7 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
   amount               # Unspent amount.
 ```
 <p align="center">
-    <small>Table structure.</small>
+    <sub>Table structure.</sub>
 </p>
 
 ## Coding Study
@@ -245,7 +245,7 @@ while(blockhash <= target) {
 }
 ```
 <p align="center">
-    <small>Proof of work (POW) by pseudocode.</small>
+    <sub>Proof of work (POW) by pseudocode.</sub>
 </p>
 
 3. `addBlock` RPC command is called to transport the new mined block to node and then broadcast to whole network.
