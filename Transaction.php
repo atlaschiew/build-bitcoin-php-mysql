@@ -117,9 +117,10 @@ class Transaction {
 		return $signature;
 	}
 	
-	static function getCoinbaseTransaction($address, $blockIndex) {
+	static function getCoinbaseTransaction($address, $blockIndex, $txFees = "0") {
 		
-		$reward =  Chain::getReward($blockIndex);
+		$reward = Chain::getReward($blockIndex);
+		$reward = Utils::safeAdd($reward, $txFees);
 		
 		$t = new Transaction();
 		
@@ -130,6 +131,7 @@ class Transaction {
 
 		$t->txIns = array($txIn);
 		$t->txOuts = array(new TxOut($address, $reward));
+
 		$t->id = Transaction::getTransactionId($t);
 		$t->timestamp = date("Y-m-d H:i:s");
 		
