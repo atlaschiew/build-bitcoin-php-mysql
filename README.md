@@ -205,9 +205,6 @@ By now, your node will receive new peers and new block from other if there are.
 4. Extra information.
 
   ```sh
-  #===============================
-  #There are total 14 RPC commands
-  #===============================
   getPeers               # Get all existing peers.
   generateAddress        # Generate new address.
   getBlockTemplate       # Get next block template for miner to use.
@@ -221,10 +218,12 @@ By now, your node will receive new peers and new block from other if there are.
   pushTx                 # Push transaction to node.
   getTransactionPool     # Get list of pending TXes.
   addressTx              # Get all TXs based on input address.
-  
-  #==============================
-  #There are total 6 P2P commands
-  #==============================
+  ```
+  <p align="center">
+      <sub>There are total 14 RPC commands</sub>
+  </p>
+ 
+ ```sh
   P2P-addTxPool          # Initiator receive TX pushed by end user then broadcast P2P-addTxPool command to other peers to add.
   P2P-sendYouPeer        # Node receive P2P-sendMePeer command, then it trigger P2P-sendYouPeer to transport his known peers to initiator.
   P2P-sendMePeer         # Initiator ask peers to send him more known peers.
@@ -232,6 +231,9 @@ By now, your node will receive new peers and new block from other if there are.
   P2P-sendYouBlocks      # Node receive P2P-sendMeBlocks command, then it trigger P2P-sendYouBlocks to transport his blocks to initiator.
   P2P-checkFork          # Node receive P2P-sendMeBlocks command, then it trigger P2P-checkFork to transport block header to initiator for check fork validness usage
   ```
+  <p align="center">
+      <sub>There are total 6 P2P commands</sub>
+  </p>
 5. if `handleRequest(...)` return with non-empty `$response` array, then TCP server will write the response back to the client request it.
 
 ### Block Generation
