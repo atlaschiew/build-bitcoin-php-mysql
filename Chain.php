@@ -877,27 +877,30 @@ class Chain {
 				return Utils::safeComp($a->txFees,$b->txFees) === -1 ? 1 : -1;
 			}
 		);
-
-		$coinbaseTx  = Transaction::getCoinbaseTransaction($minerAddress, $nextIndex);
 		
+		//dummy coinbase tx
+		$coinbaseTx  = Transaction::getCoinbaseTransaction($minerAddress, $nextIndex, "99999999.99999999");
 		$blockData = [$coinbaseTx];
 		$txIndex = 0;
-		
+		$txFees = "0";
 		while(isset($pooledTxs[$txIndex]) AND strlen(Utils::jsonEncode($blockData)) <= self::MAX_BLOCK_DATA_SIZE) {
 			
 			$blockData[] = $pooledTxs[$txIndex];
 			
 			//add tx fees into coinbase tx
-			$coinbaseTx->txOuts[0]->amount = Utils::safeAdd($coinbaseTx->txOuts[0]->amount, $pooledTxs[$txIndex]->txFees);
+			$txFees = Utils::safeAdd($txFees, $pooledTxs[$txIndex]->txFees);
 			
 			$txIndex++;
 		}
+		
+		array_shift($blockData); //remove dummy coinbase tx
+		$coinbaseTx  = Transaction::getCoinbaseTransaction($minerAddress, $nextIndex,$txFees);
+		array_unshift($blockData, $coinbaseTx); //readd coinbase tx with correct reward
 		
 		$difficulty = self::getDifficulty($latestBlock);
 		$targetDec = self::getTarget($latestBlock, $difficulty);
 		$targetHex = Utils::leftPadding(Utils::bcdechex($targetDec), 64);
 		
-	    $nextIndex = $latestBlock->blockIndex + 1;
 	    $nextTimestamp = date("Y-m-d H:i:s");
 		
 		$chainWork = self::getChainWork($latestBlock, $difficulty);
@@ -1105,5 +1108,4 @@ class Chain {
 			return 0;
 		}
 	}
-	
 }
