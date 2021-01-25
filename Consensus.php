@@ -85,9 +85,7 @@ class Consensus {
 		$txs = $block->data;
 		$coinbaseTx = $txs[0];
 		
-		$txFees = array_reduce($txs, function($carry, $thisTx) { return Utils::safeAdd($carry, $thisTx->txFees); },0);
-		
-		if (!Self::isValidCoinbaseTx($coinbaseTx, $block, $txFees)) {
+		if (!Self::isValidCoinbaseTx($coinbaseTx, $block)) {
 			Utils::printOut("isValidBlockTxs(#{$block->blockIndex}) invalid coinbase transaction: ".print_r($coinbaseTx,true));
 			return false;
 		}
@@ -115,9 +113,12 @@ class Consensus {
 		return $retVal;
 	}
 	
-	static function isValidCoinbaseTx($tx, $block, $txFees) {
+	static function isValidCoinbaseTx($tx, $block) {
 		
-		$reward = $tx->txOuts[0]->amount;
+		$txs = $block->data;
+		$txFees = array_reduce($txs, function($carry, $thisTx) { return Utils::safeAdd($carry, $thisTx->txFees); },"0");
+		
+		$reward = Utils::safesub($tx->txOuts[0]->amount, $txFees);
 		
 		$regenTxHash = Transaction::getTransactionId($tx);
 		$takenRewards = Utils::safeMul(Chain::COINBASE_AMOUNT, $block->blockIndex);
@@ -127,7 +128,6 @@ class Consensus {
 		if (!$tx) {
 			Utils::printOut("isValidCoinbaseTx(#{$tx->id}) the first transaction in the block must be coinbase transaction");
 			return false;
-		#bug id:2, weird bug! sometime regen txid is not matched to submit txid
 		}else if ($regenTxHash != $tx->id) {
 			Utils::printOut("isValidCoinbaseTx(#{$tx->id}) invalid coinbase tx {$regenTxHash} vs {$tx->id}");
 			return false;
@@ -141,7 +141,7 @@ class Consensus {
 		}else if (count($tx->txOuts) != 1) {
 			Utils::printOut("isValidCoinbaseTx(#{$tx->id}) invalid number of txOuts in coinbase transaction");
 			return false;
-		} else if (Utils::safecomp($reward ,$compareReward) > 0) {
+		} else if (Utils::safecomp($reward ,$compareReward) !== 0) {
 			Utils::printOut("isValidCoinbaseTx(#{$tx->id}) invalid coinbase reward, amount exceeded max supply.");
 			return false;
 		} else if (Utils::safeComp($tx->txOuts[0]->amount,Utils::safeAdd($reward, $txFees)) !== 0 ) {
