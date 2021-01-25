@@ -363,15 +363,7 @@ class Chain {
 					$tx->timestamp  = date("Y-m-d H:i:s");
 					$tx->txFees = Transaction::calcTxFees($tx->txIns, $tx->txOuts,$chain['id']);
 					
-					//finally, sign this transaction :)
-					$tx->txIns = array_map(
-									function($txInIndex, $txIn) use ($tx, $inputs) { 
-										$privateKey = $inputs[$txInIndex][2];
-										$txIn->signature = Transaction::sign($tx->id,$privateKey );
-										return $txIn;  
-									},array_keys($unsignedTxIns), $unsignedTxIns
-								);
-								
+					//return unsigned TX
 					$response = $tx;
 					
 				break;
