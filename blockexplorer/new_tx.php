@@ -30,18 +30,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 	}
 	
-	$query = 'getRawTx';
-	
 	if (!$errMsg) {
 		
-		$sendResult = Network::postToUrl($targetPeer,['query' => $query,'inputs'=>json_encode($inputs) , 'outputs'=> json_encode($outputs)]);
+		$unsignedTxResult = Network::postToUrl($targetPeer,['query' => 'getRawTx','inputs'=>json_encode($inputs) , 'outputs'=> json_encode($outputs)]);
 		
-		$arrSendResult = json_decode($sendResult,true);
-		
-		if (isset($arrSendResult['error'])) {
-			$errMsg .= $arrSendResult['error'];
+		$unsignedTx = json_decode($unsignedTxResult,true);
+
+		if (isset($unsignedTx['error'])) {
+			$errMsg .= $unsignedTx['error'];
 		} else {
-			$succMsg .= $sendResult;
+			
+			$tx = Transaction::parse($unsignedTx);
+			
+			$tx->txIns = array_map(
+				function($txInIndex, $txIn) use ($tx, $inputs) { 
+					$privateKey = $inputs[$txInIndex][2];
+					
+					//finally, sign this transaction locally
+					$txIn->signature = Transaction::sign($tx->id,$privateKey );
+					return $txIn;  
+				},array_keys($tx->txIns), $tx->txIns
+			);
+			
+			$succMsg .= Utils::jsonEncode($tx);
 		}
 	}
 }
