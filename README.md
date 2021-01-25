@@ -52,19 +52,19 @@ $ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.
 ```
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/show_3_cli.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/show_3_cli.PNG" width="400px" height="250px"></a><br/>
-    Diagram 1. Three nodes are running now.
+    <small>Diagram 1. Three nodes are running now.</small>
 </p>
 
 8. Make sure your HTTP server is running fine. Now open up 3 different browser and navigate to http://localhost/blockexplorer/. To view blockchain, you need to fill in different ip for each blockexplorer and click connect button.
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/blockexplorer.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/blockexplorer.PNG" width="400px" height="180px"></a><br/>
-    Diagram 2. Blockexplorer with 1 block, a.k.a genesis block.
+    <small>Diagram 2. Blockexplorer with 1 block, a.k.a genesis block.</small>
 </p>
 
 9. Get a new address at http://localhost/blockexplorer/new_address.php, then run miner at http://localhost/miner/ to receive network rewards.
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/miner.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/miner.PNG" width="400px" height="180px"></a><br/>
-    Diagram 3. Miner is running.
+    <small>Diagram 3. Miner is running.</small>
 </p>
 
 ## Project And Table Structure
@@ -88,7 +88,7 @@ Utils.php              # Common use functions and classes.
 Utxo.php               # Unspent tx output (UTXO) related functions.
 ```
 <p align="center">
-    Project structure
+    <small>Project structure.</small>
 </p>
 
 ```sh
@@ -170,7 +170,7 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
   amount               # Unspent amount.
 ```
 <p align="center">
-    Table structure
+    <small>Table structure.</small>
 </p>
 
 ## Coding Study
@@ -245,7 +245,7 @@ while(blockhash <= target) {
 }
 ```
 <p align="center">
-    Proof of work (POW) by pseudocode
+    <small>Proof of work (POW) by pseudocode.</small>
 </p>
 
 3. `addBlock` RPC command is called to transport the new mined block to node and then broadcast to whole network.
