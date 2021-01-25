@@ -251,6 +251,9 @@ while(blockhash <= target) {
 </p>
 
 3. `addBlock` RPC command is called to transport the new mined block to node and then broadcast to whole network.
+4. Before end this section, i will get you deep in `Chain.php > getBlockTemplate(...)`.
+- fasdf
+- fasdffd
 
 ### Transaction
 
