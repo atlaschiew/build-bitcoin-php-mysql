@@ -238,6 +238,16 @@ By now, your node will receive new peers and new block from other if there are.
 
 1. New block only allow be produced by miner. So open up `miner/mining.php` and the trick play is in it.
 2. `getBlockTemplate` RPC command is called to get next block template. One important param in block template is target, miner has to keep recaculate block hash by changing nonce, and new block is mined when block hash <= target, this is also known as `Proof Of Work (POW)`.
+```sh
+while(blockhash <= target) {
+    block.nonce = block.nonce + 1
+    blockhash = sha256(sha256(block))
+}
+```
+<p align="center">
+    Proof of work (POW) by pseudocode
+</p>
+
 3. `addBlock` RPC command is called to transport the new mined block to node and then broadcast to whole network.
 
 ### Transaction
