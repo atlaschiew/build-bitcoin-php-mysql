@@ -240,6 +240,6 @@ By now, your node will receive new peers and new block from other if there are.
 2. `getBlockTemplate` RPC command is called to get next block template. One important param in block template is target, miner has to keep recaculate block hash by changing nonce, and new block is mined when block hash <= target, this is also known as `Proof Of Work (POW)`.
 3. `addBlock` RPC command is called to transport the new mined block to node and then broadcast to whole network.
 
-### Wallet & Transaction
+### Transaction
 
 
