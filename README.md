@@ -251,9 +251,13 @@ while(blockhash <= target) {
 </p>
 
 3. `addBlock` RPC command is called to transport the new mined block to node and then broadcast to whole network.
-4. Before end this section, i will get you deep in `Chain.php > getBlockTemplate(...)`.
-- fasdf
-- fasdffd
+
+4. Before end this section, i will get you deep into `Chain.php > getBlockTemplate(...)`.
+* Retrieve all TXs out from TX pool and sort them descendingly from highest TX fees to lowest TX fees.
+* Pack all TXs together but limited to `Chain::MAX_BLOCK_DATA_SIZE`.
+* First TX known as `Coinbase TX`. Its TX output contain miner address and amount is addition of network reward and collected TX fees.
+* Calculate network target and difficulty for mining job.
+* Pack all things above together and form a new unmined block.
 
 ### Transaction
 
