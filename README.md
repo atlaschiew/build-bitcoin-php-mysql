@@ -263,10 +263,13 @@ while(blockhash <= target) {
 
 1. To spend from an address, one can navigate to http://localhost/blockexplorer/utxo.php and obtain an address's UTXO (Unspent TX out).
 2. Fill new TX's inputs with UTXO you obtain from point number 1 in http://localhost/blockexplorer/newtx.php.
+
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/newtx.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/newtx.PNG" width="400px" height="250px"></a><br/>
     <sub>Diagram 4. Create new TX interface.</sub>
 </p>
+
 3. New TX's outputs is to fill in your recipient address, you can have more than 1 recipient, and if there is need to keep the balance back to sender address then you got to have that output of course.
+
 4. TX fees = SUM(total TX inputs' amount) - SUM(total TX outputs' amount) and the source code is located in `Transaction.php > calcTxFees(...)`.
 
