@@ -267,5 +267,6 @@ while(blockhash <= target) {
     <a href="https://www.btcschools.net/media/images/github/newtx.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/newtx.PNG" width="400px" height="250px"></a><br/>
     <sub>Diagram 4. Create new TX interface.</sub>
 </p>
+3. New TX's outputs is to fill in your recipient address, you can have more than 1 recipient, and if there is need to keep the balance back to sender address then you got to have that output of course.
 
 
