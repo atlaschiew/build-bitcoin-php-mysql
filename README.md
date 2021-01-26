@@ -268,5 +268,5 @@ while(blockhash <= target) {
     <sub>Diagram 4. Create new TX interface.</sub>
 </p>
 3. New TX's outputs is to fill in your recipient address, you can have more than 1 recipient, and if there is need to keep the balance back to sender address then you got to have that output of course.
-
+4. TX fees = SUM(total TX inputs' amount) - SUM(total TX outputs' amount) and the source code is located in `Transaction.php > calcTxFees(...)`.
 
