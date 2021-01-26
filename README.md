@@ -261,4 +261,11 @@ while(blockhash <= target) {
 
 ### Transaction
 
+1. To spend from an address, one can navigate to http://localhost/blockexplorer/utxo.php and obtain an address's UTXO (Unspent TX out).
+2. Fill new TX's inputs with UTXO you obtain from point number 1 in http://localhost/blockexplorer/newtx.php.
+<p align="center">
+    <a href="https://www.btcschools.net/media/images/github/newtx.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/newtx.PNG" width="400px" height="250px"></a><br/>
+    <sub>Diagram 4. Create new TX interface.</sub>
+</p>
+
 
