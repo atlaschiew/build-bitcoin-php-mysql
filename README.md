@@ -297,5 +297,17 @@ A-B-C-D-E-F
 * Then checkFork task is assigned to check is ancestor of block H connected to any pre-existing block.
 * If connected block found, then downloadBlocks task is assigned to download the blocks.
 
+### Address
 
+1. Essentially, address is a must for you to receive money from other.
+2. They way to generate address is located in `Address.php > newAddress()`.
+```sh
+Random number
+       \
+ private key
+         \ 
+    public key
+           \
+         Address
+```
 
