@@ -277,5 +277,21 @@ while(blockhash <= target) {
 
 ### Fork Handling
 
-1. Fork handling process happen when node receive a block that is similar block height to other block.
-2. 
+1. Fork handling process happen when node receive a block that is similar block height to other.
+2. In `Chain.php > createIfNewFork(...)`, creation of new fork will be carried on if incoming block's parent has pre-existing child block.
+```sh
+# Say this is initial blockchain.
+
+A-B-C-D-E-F
+
+# Now, a new block G arrived and its parent is C.
+# then block G is connected to block C.
+# A new valid fork information will be recorded in fork table. 
+# Lastly, new UTXO set for this new fork will be reproduced and store in new UTXO table.
+
+A-B-C-D-E-F
+     \G
+
+
+```
+
