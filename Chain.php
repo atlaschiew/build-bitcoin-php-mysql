@@ -811,7 +811,7 @@ class Chain {
 				
 				//only 1 system task at the time for simplicity
 				if (!Utils::world('systemTask.checkFork')) {
-					if (!Utils::world('systemTask.downloadFork')) {
+					if (!Utils::world('systemTask.downloadBlocks')) {
 						if ($block->blockIndex > $latestBlock->blockIndex) {
 							$r = DB::query("SELECT * FROM `fork` WHERE `lastBlockIndex`='".DB::esc($block->blockIndex)."' LIMIT 1");
 							$validHeader = mysqli_fetch_assoc($r);
