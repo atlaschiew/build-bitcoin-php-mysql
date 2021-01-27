@@ -294,7 +294,7 @@ A-B-C-D-E-F
 ```
 3. Say initial blockchain is `A-B-C-D-E-F`, what happen if new block H arrived without block G? 
 * In `chain.php > addBlock(...)`, block H will be validated and mark as valid-headers status.
-* Then checkFork task is assigned to check is ancestor of block H connected to any pre-existing block at my active chain.
+* Then checkFork task is assigned to check is ancestor of block H connected to any pre-existing block.
 * If connected block found, then downloadBlocks task is assigned to download the blocks.
 
 
