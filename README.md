@@ -7,12 +7,14 @@
 </p>
 <br/>
 <br/>
+
 ## Table of Contents
 
 * [About The Project](#about-the-project)
 * [Deployment](#deployment)
 * [Coding Study](#coding-study)
-
+  * [Initialization](#initialization)
+  * [Request Handling](#request-handling)
 
 ## About The Project
 In this tutorial we will code from zero to form a basic features of working cryptocurrency. Most of work meets minimal working requirement and aims for simplicity and easy understanding.
