@@ -273,4 +273,9 @@ while(blockhash <= target) {
 3. New TX's outputs is to fill in your recipient address, you can have more than 1 recipient, and if there is need to keep the balance back to sender address then you got to have that output of course.
 4. `TX fees = SUM(total TX inputs' amount) - SUM(total TX outputs' amount)` and the source code is located in `Transaction.php > calcTxFees(...)`.
 5. Trigger of `getRawTx` RPC command will response a unsigned TX back to initiator for signing. Signature is required for each of TX's input. Please read the code in `blockexplorer/newtx.php`.
-6. A completed signed TX is then broadcast to network with `pushTx` RPC command. 
+6. A completed signed TX is then broadcast to network by `pushTx` RPC command. 
+
+### Fork Handling
+
+1. Fork handling process happen when node receive a block that is similar block height to other block.
+2. 
