@@ -260,7 +260,7 @@ while(blockhash <= target) {
 * Calculate network target and difficulty for mining job.
 * Pack all things above together and form a new unmined block.
 
-### Transaction
+### Transaction Generation
 
 1. To spend from an address, one can navigate to http://localhost/blockexplorer/utxo.php and obtain an address's UTXO (Unspent TX out).
 2. Fill new TX's inputs with UTXO you obtain from point number 1 in http://localhost/blockexplorer/newtx.php.
