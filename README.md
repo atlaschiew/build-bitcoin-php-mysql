@@ -173,7 +173,7 @@ transactionPoolTxIns   # To prevent same UTXO being insert twice. Bitcoin allow 
   txOutId              # Previous Unspent TX id.
   txOutIndex           # Previous output index in Unspent TX. 
   
-unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active UTXO.
+unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain UTXO list.
   id                   # Auto-increment primary id.   
   blockIndex           # Associated block height. 
   txOutId              # Previous Unspent TX id.  
@@ -181,7 +181,7 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
   address              # Associated address.
   amount               # Unspent amount.
   
-unspentTxOuts_fork_[0-9] # UTXO set for new fork, it is copy of unspentTxOuts structure
+unspentTxOuts_fork_[0-9] # UTXO list for new fork, it is copy of unspentTxOuts structure.
 ```
 <p align="center">
     <sub>Table structure.</sub>
