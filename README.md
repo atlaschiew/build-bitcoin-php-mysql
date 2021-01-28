@@ -180,6 +180,8 @@ unspentTxOuts          # Could be reproduce from `blocks.data`. Maintain active 
   txOutIndex           # Previous output index in Unspent TX. 
   address              # Associated address.
   amount               # Unspent amount.
+  
+unspentTxOuts_fork_[0-9] # UTXO set for new fork, it is copy of unspentTxOuts structure
 ```
 <p align="center">
     <sub>Table structure.</sub>
