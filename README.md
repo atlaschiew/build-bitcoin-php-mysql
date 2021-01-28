@@ -197,7 +197,7 @@ unspentTxOuts_fork_[0-9] # UTXO list for new fork, it is copy of unspentTxOuts s
   * Initialise system task variable
   * Connect mysql and start chain.
 
-2. `Chain.php -> start()` 
+2. `Chain.php > start()` 
   * Script add genesis block if not exist.
   * Add initial peers from conf and 
   * Ready to start TCP server for listening with default port is 9981.
@@ -207,13 +207,13 @@ unspentTxOuts_fork_[0-9] # UTXO list for new fork, it is copy of unspentTxOuts s
   * Tell other peers to send me new blocks start last block of my active chain.
   * Grant `Utils::world("systemTask.downloadBlocks", [...])` task. This task will be auto kill if idle longer than 5 seconds.
   * Start TCP server and ready to accept new client connection.
-  * Any valid client request will be handle by `Chain.php -> handleRequest(...)`.
+  * Any valid client request will be handle by `Chain.php > handleRequest(...)`.
   
 By now, your node will receive new peers and new block from other if there are.
 
 ### Request Handling
 
-1. `Chain.php -> handleRequest(...)` acts as entry point for receiving request.
+1. `Chain.php > handleRequest(...)` acts as entry point for receiving request.
 2. `$this->maintainSystem($req)` to maintain system task.
 3. `$this->handleHeaders($req)` to process block header stuff.
 4. Extra information.
@@ -249,7 +249,7 @@ By now, your node will receive new peers and new block from other if there are.
       <sub>There are total 6 P2P commands</sub>
   </p>
   
-5. if `handleRequest(...)` return with non-empty `$response` array, then TCP server will write the response back to the client request it.
+5. if `Chain.php > handleRequest(...)` return with non-empty `$response` array, then TCP server will write the response back to the client request it.
 
 ### Block Generation
 
