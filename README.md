@@ -291,7 +291,7 @@ while(blockhash <= target) {
 
 ### Fork Handling
 
-1. Fork handling process happen when node receive a block that is similar block height to other.
+1. Fork handling process happen when received new block has similar block height to pre-existing block.
 2. In `Chain.php > createIfNewFork(...)`, creation of new fork will be carried out if incoming block's parent has pre-existing child block.
 ```sh
 # Say this is initial blockchain.
