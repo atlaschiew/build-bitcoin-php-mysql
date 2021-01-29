@@ -38,10 +38,10 @@ I hope this tutorial is helpful to you to step into blockchain development.
 # navigate to your working web root, assume web root folder is name public_html
 $ cd public_html
 
-# extract source code without project folder
-$ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
+# extract source code
+$ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git
 ```
-2. Create a new Mysql database and name it as `bitcoin_db`, then import and execute all sqls contain in `public_html/mysql.sql`. Repeat this step twice for the other 2 nodes. Make sure all three databases  `bitcoin_db`,  `bitcoin_db2` and  `bitcoin_db3` are in there.
+2. Create a new Mysql database and name it as `bitcoin_db`, then import and execute all sqls contain in `public_html/build-bitcoin-php-mysql/mysql.sql`. Repeat this step twice for the other 2 nodes. Make sure all three databases  `bitcoin_db`,  `bitcoin_db2` and  `bitcoin_db3` are in there.
 
 3. Create mysql user `bitcoin_user` with proper password and privilleges and link it up to all 3 databases above. Please grant the new user with following privileges: `SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES`.
 
@@ -54,13 +54,13 @@ $ git clone https://github.com/atlaschiew/build-bitcoin-php-mysql.git .
 7. Now you are ready to run all 3 nodes in php-cli mode. Default port is 9981.
 ```sh
 #cli 1
-$ php public_html/Main.php --runAs="192.168.0.12" --addNodes="127.0.0.1,210.191.1.97" --dbHost="localhost" --dbName="bitcoin_db" --dbUser="bitcoin_user" --dbPwd='anypassword'
+$ php public_html/build-bitcoin-php-mysql/Main.php --runAs="192.168.0.12" --addNodes="127.0.0.1,210.191.1.97" --dbHost="localhost" --dbName="bitcoin_db" --dbUser="bitcoin_user" --dbPwd='anypassword'
 
 #cli 2
-$ php public_html/Main.php --runAs="210.191.1.97" --addNodes="127.0.0.1,192.168.0.12" --dbHost="localhost" --dbName="bitcoin_db2" --dbUser="bitcoin_user" --dbPwd='anypassword'
+$ php public_html/build-bitcoin-php-mysql/Main.php --runAs="210.191.1.97" --addNodes="127.0.0.1,192.168.0.12" --dbHost="localhost" --dbName="bitcoin_db2" --dbUser="bitcoin_user" --dbPwd='anypassword'
 
 #cli 3
-$ php public_html/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.0.12" --dbHost="localhost" --dbName="bitcoin_db3" --dbUser="bitcoin_user" --dbPwd='anypassword'
+$ php public_html/build-bitcoin-php-mysql/Main.php --runAs="127.0.0.1" --addNodes="210.191.1.97,192.168.0.12" --dbHost="localhost" --dbName="bitcoin_db3" --dbUser="bitcoin_user" --dbPwd='anypassword'
 ```
 <p align="center">
     <a href="https://www.btcschools.net/media/images/github/show_3_cli.PNG" target="_blank"><img src="https://www.btcschools.net/media/images/github/show_3_cli.PNG" width="400px" height="250px"></a><br/>
