@@ -1,8 +1,3 @@
-<style>
-table {
-    width:100%;
-}
-</style>
 <p align="center">
     <img src="https://www.btcschools.net/media/images/github/bitcoinborn.PNG"/>
     <h3 align="center">Build Bitcoin With PHP & Mysql</h3>
@@ -38,7 +33,7 @@ I hope this tutorial is helpful to you to step into blockchain development.
 
 ## Deployment
 
-| PHP>=5.5, MYSQL 5.6 |
+| ✅ PHP>=5.5, MYSQL 5.6 |
 | --- |
 
 1. Navigate to web root, then download git
