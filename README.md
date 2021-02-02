@@ -33,6 +33,9 @@ I hope this tutorial is helpful to you to step into blockchain development.
 
 ## Deployment
 
+| PHP>=5.5, MYSQL 5.6 |
+| --- |
+
 1. Navigate to web root, then download git
 ```sh
 # navigate to your working web root, assume web root folder is name public_html
